@@ -1,0 +1,30 @@
+.lbl-estado{
+    font-size: 12px;
+    padding: 4px !important;
+    background-color: #198754;
+    text-align: center;
+    color: #eee;
+    margin: auto 0;
+    border-radius: 4px;
+}
+.sp-fecha{
+    display: block;
+    font-size: 12px;
+    font-weight:bold;
+}
+.sp-registrado{
+    color: #555; 
+}
+.sp-modificado{
+    color: rgb(149, 41, 41);
+}
+
+.card{
+    margin-top: 1.5rem  /*Cada rem = aprox 16px*/
+}
+
+.widget{
+    border: 1px solid rgba(1, 41, 112,0.25);
+    padding: 14px;
+    border-radius: 4px;
+}
