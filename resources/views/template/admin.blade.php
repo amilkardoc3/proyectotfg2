@@ -27,6 +27,13 @@
   <link href="{{asset('template/admin/css/style.css')}}" rel="stylesheet">
   <link rel="stylesheet" href="{{asset('template/css/style.css')}}">
 
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/css/selectize.default.min.css"
+    integrity="sha512-pTaEn+6gF1IeWv3W1+7X7eM60TFu/agjgoHmYhAfLEU8Phuf6JKiiE8YmsNC0aCgQv4192s4Vai8YZ6VNM6vyQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -46,10 +53,8 @@
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
         <li class="nav-item d-block d-lg-none">
           <a class="nav-link nav-icon search-bar-toggle " href="#">
             <i class="bi bi-search"></i>
@@ -120,6 +125,16 @@
               <i class="bi bi-user"></i><span>Usuarios</span>
             </a>
           </li>
+          <li>
+            <a href="{{route('rol.index')}}">
+              <i class="bi bi-user"></i><span>Roles</span>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('permiso.index')}}">
+              <i class="bi bi-user"></i><span>Permisos</span>
+            </a>
+          </li>
         </ul>
       </li><!-- End Components Nav -->
 
@@ -168,6 +183,14 @@
   
   <!-- Template Main JS File -->
   <script src="{{asset('template/admin/js/main.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.15.2/js/selectize.min.js"
+    integrity="sha512-IOebNkvA/HZjMM7MxL0NYeLYEalloZ8ckak+NDtOViP7oiYzG5vn6WVXyrJDiJPhl4yRdmNAG49iuLmhkUdVsQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  @yield('js')
   <script>
     function soloLetra(e) {
       var key = e.keyCode || e.which,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Persona;
+use App\Models\PermisoUsuario;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -55,16 +56,24 @@ class UsuarioController extends Controller
         $usuario = User::find($id);
         $roles = Role::all();
         $permisos = Permission::all();
+        $permisos_usuario = PermisoUsuario::where('model_id', $id)->get();
         return view('admin/usuario/edit')->with('usuario', $usuario)
-        ->with('permisos', $permisos);
+        ->with('permisos', $permisos)->with('permisos_usuario', $permisos_usuario);
         // dd($usuario);
     }
 
     public function update(Request $request, $id){
+        
         $usuario = User::find($id);
-        $permiso = Permission::find($request->permiso_id);
-        $usuario->givePermissionTo($permiso->name);
+        
+        foreach($request->permiso_id as $permiso_id)
+        {
+            $permiso = Permission::find($permiso_id);
+            $usuario->givePermissionTo($permiso->name);
+        }
+        
         $usuario->save();
+
         return redirect()->route('usuario.index');
     }
 

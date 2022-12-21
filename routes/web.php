@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PersonaController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\PermisoController;
+use App\Http\Controllers\RolController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,16 +18,17 @@ use App\Http\Controllers\UsuarioController;
 */
 
 
-Route::get('persona/permiso', [PersonaController::class, 'spatie']);
-Route::resource('persona', PersonaController::class);
-Route::resource('usuario', UsuarioController::class);
-
 Route::middleware(['auth'])->group(function () {
 
     // Route::resource('persona', PersonaController::class);
-
+    Route::get('persona/permiso', [PersonaController::class, 'spatie']);
+    Route::resource('persona', PersonaController::class);
+    Route::resource('usuario', UsuarioController::class);
+    Route::resource('permiso', PermisoController::class);
+    Route::resource('rol', RolController::class);
+    
     Route::get('/', function () {
-        return view('welcome');
+        return view('template/admin');
     })->name('/');
     
 });

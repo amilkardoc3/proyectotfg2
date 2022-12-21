@@ -9,6 +9,15 @@ use Spatie\Permission\Models\Permission;
 
 class PersonaController extends Controller
 {
+    public function __construct(){
+        $this->middleware(['permission:persona.index'])->only('index');
+        $this->middleware(['permission:persona.create'])->only('create');
+        $this->middleware(['permission:persona.edit'])->only('edit');
+        $this->middleware(['permission:persona.destroy'])->only('destroy');
+        $this->middleware(['permission:persona.store'])->only('store');
+        $this->middleware(['permission:persona.update'])->only('update');
+        $this->middleware(['permission:persona.show'])->only('show');
+    }
     public function index(){
         // $personas = Persona::all();
         // $personas = Persona::where('estado', 1)->where('apellido', 'like', 'd%')->get();
